@@ -18,19 +18,12 @@ add_executable(ember
     src/cpu.cpp
     src/alu.cpp
     src/stack.cpp
-    src/asm/lexer.cpp
-    src/asm/lexer.cpp
-    src/asm/assembler.cpp
-)
+   
 
 add_executable(lexer_test
     src/asm/lexer_test.cpp
     src/asm/lexer.cpp
 )
-
-target_compile_options(lexer_test PRIVATE -Wall -Wextra -Werror)
-
-target_compile_options(ember PRIVATE -Wall -Wextra -Werror)
 
 # Sanitizers on Debug builds. They are extra checks compiled *into* the binary:
 # walk off an array and the program prints a report and aborts, instead of

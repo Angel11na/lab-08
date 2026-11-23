@@ -129,24 +129,16 @@ void step(CPU& cpu) {
 
         //  ------------------------------------------------------------------------------------
         // -- ALU
-        case Op::ADD: {
-            cout << "\n"
-                 << "ADD(" << static_cast<int>(cpu.a) << ", " << static_cast<int>(cpu.b)
-                 << ") = " << static_cast<int>(ADD(cpu.a, cpu.b, cpu.f)) << flags_state(cpu)
-                 << "\n\n";
-            cpu.pc++;
-            break;
-        }
+           case Op::ADD:
+        cpu.a = ADD(cpu.a, cpu.b, cpu.f);
+        cpu.pc++;
+        break;
 
-        case Op::SUB: {
-            cout << "\n"
-                 << "SUB(" << static_cast<int>(cpu.a) << ", " << static_cast<int>(cpu.b)
-                 << ") = " << static_cast<int>(SUB(cpu.a, cpu.b, cpu.f)) << flags_state(cpu)
-                 << "\n\n";
-            cpu.pc++;
-            break;
-        }
-
+            case Op::SUB:
+        cpu.a = SUB(cpu.a, cpu.b, cpu.f);
+        cpu.pc++;
+        break;
+        
         case Op::AND: {
             cout << "\n"
                  << "AND = " << to_bin(AND(cpu.a, cpu.b, cpu.f)) << flags_state(cpu) << "\n\n";
