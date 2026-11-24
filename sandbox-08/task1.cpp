@@ -7,7 +7,7 @@ bool is_separator(char c) {
 
 int count_words(const char* text) {
     int words = 0;
-    bool inside = false;  // єдиний біт стану: «я всередині слова?»
+    bool inside = false;  
     for (int i = 0; text[i] != '\0'; ++i) {
         if (is_separator(text[i])) {
             inside = false;
